@@ -12,7 +12,7 @@
 	<img src="{% static 'images/banners/1.jpg' %}" class="img-fluid rounded">
 </div>
 
-</div> <!-- container //  -->
+</div> 
 </section>
 <!-- ========================= SECTION MAIN END// ========================= -->
 
@@ -28,15 +28,56 @@
 	
 <div class="row">
 	{% for product in products %}
-	<div class="col-md-3">
+	<!-- <div class="col-md-3">
 		<div class="card card-product-grid">
-			<a href="{{product.get_url}}" class="img-wrap"> <img src="{{ product.images.url}}"> </a>
+			<a href="{{product.get_url}}" class="img-wrap"> <img class="w-100" src="{{ product.images.url}}"> </a>
 			<figcaption class="info-wrap">
 				<a href="{{ product.get_url}}" class="title">{{product.product_name}}</a>
-				<div class="price mt-1">$ {{product.price}}</div> <!-- price-wrap.// -->
+				<span class="badge {{product.col}}">{{product.tagone}}</span>
+				<div class="price mt-1">$ {{product.tagone}}</div> 
 			</figcaption>
+			<span class="badge {{product.col}}">{{product.tagone}}</span>
 		</div>
-	</div> <!-- col.// -->
+	</div> -->
+	<div class="col-sm-12 col-md-4 mb-4 ">
+		<div class="card shadow mb-2 bg-white rounded" >
+			<!-- <div class="float-right">
+				<span class="badge {{product.col}}">{{product.tagone}}</span>
+			</div> -->
+			<a href="{{product.get_url}}">
+			<img src="{{ product.images.url}}" class="card-img-top" alt="{{product.product_name}}">
+			</a>
+			<div class="card-body">
+			  <h5 class="card-title">{{product.product_name}}</h5>
+			  <p class="card-text">{{product.description | truncatechars:120 }}</p>
+
+			  <div class="rating-star">
+				<span>
+					<i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.average_review < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+					<i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.average_review < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+					<i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.average_review < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+					<i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.average_review < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+					<i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.average_review < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+
+				</span>
+			</div>
+			<br>
+
+				<a href="{{product.e1}}">
+					<button type="button" class="btn btn-outline-primary">
+						<i class="fas fa-cloud-download-alt"></i> Catalogo
+					</button>
+			 	</a>
+			  <a href="{{product.e2}}">
+				<button type="button" class="btn btn-outline-success">
+					<i class="fas fa-dollar-sign"></i> Precios
+				</button>
+			  </a>
+
+			</div>
+		  </div>
+	</div>
+	
 
 	{% endfor %}
 </div> <!-- row.// -->
