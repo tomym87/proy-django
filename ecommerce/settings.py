@@ -173,8 +173,8 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool, default=True)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-PWA_APP_NAME = 'geeksforgeeks'
-PWA_APP_DESCRIPTION = "GeeksForGeeks PWA"
+PWA_APP_NAME = 'Valtic app'
+PWA_APP_DESCRIPTION = "Aplicacion recursos y catalogos"
 PWA_APP_THEME_COLOR = '#000000'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
 PWA_APP_DISPLAY = 'standalone'
