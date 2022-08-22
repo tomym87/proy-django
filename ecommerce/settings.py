@@ -9,12 +9,13 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, '/ecommerce/static/js', 'serviceworker.js') 
 
 
 # Quick-start development settings - unsuitable for production
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'carts',
     'corsheaders',
     'orders',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -145,10 +147,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR /'static'
+STATIC_URL = 'static/'
+
 STATICFILES_DIRS = [
-    'ecommerce/static'
+    os.path.join(BASE_DIR, 'ecommerce/static')
 ]
 
 MEDIA_URL = '/media/'
@@ -169,3 +171,34 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool, default=True)
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+PWA_APP_NAME = 'geeksforgeeks'
+PWA_APP_DESCRIPTION = "GeeksForGeeks PWA"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/images/icon-160x160.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/images/icon-160x160.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/images/icon.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'

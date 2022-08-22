@@ -43,10 +43,10 @@ label:hover ~ input:checked ~ label {
     margin-top: 5px;
 }
 .peques{
-    font-size: .7rem!important;
-    color: red;
+    font-size: .8rem!important;; 
 }
 .iconito{
-    width: 50px;
+    height: 60px;
+    width: 60px!important;
     border-radius: 50%;
 }

@@ -2,7 +2,9 @@
 
 <!DOCTYPE HTML>
 <html lang="en">
+    {% load pwa %}
 <head>
+    {% progressive_web_app_meta %}
 <meta charset="utf-8">
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="cache-control" content="max-age=604800" />
@@ -27,6 +29,7 @@
 <link href="{% static 'css/responsive.css' %}" rel="stylesheet" media="only screen and (max-width: 1200px)" />
 
 <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css"/>
+<link href="manifest.json" rel="manifest" >
 
 
 <!-- custom javascript -->
