@@ -98,7 +98,7 @@
             <hr>
             <ul class="fa-ul">
                 <li>
-                    <a href="{{single_product.e1}}">
+                    <a href="{{single_product.prod_catalogo}}">
                         <button type="button" class="btn btn-primary"><i class="fas fa-atlas"></i>
                             Catalogo</button>
                     </a>
@@ -107,7 +107,7 @@
 
             <ul class="fa-ul">
                 <li>
-                    <a href="{{single_product.e2}}">
+                    <a href="{{single_product.prod_pre}}">
                         <button type="button" class="btn btn-secondary"><i class="fas fa-dollar-sign"></i> Lista de
                             Precios</button>
                     </a>
@@ -135,8 +135,8 @@
 
             </ul>
 
-            {% if single_product.e3 != 'https://valtic.com.mx'%}
-                {% include single_product.e3 %}
+            {% if single_product.prod_fich != 'https://valtic.com.mx'%}
+                {% include single_product.prod_fich %}
                 {% endif %}
 
             {% endif %}
