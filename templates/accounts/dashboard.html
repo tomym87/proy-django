@@ -10,50 +10,333 @@
     <div class="container">
         <div class="row">
             {% include 'includes/dashboard_sidebar.html' %}
-        <main class="col-md-9">
-            <article class="card">
-            <header class="card-header">
-                <strong class="d-inline-block mr-3"> Sesion iniciada de: </strong>
-                <span>{{ user.full_name }}</span>
-            </header>
-            <div class="card-body">
-                <div class="row"> 
-                    <div class="col-md-6">
-                        <div class="card" style="text-align:center;">
-                            <div class="card-body">
-                                <h5 class="card-title">Total de ordenes</h5>
-                                <h4>{{ orders_count }}</h4>
-                                <a href="">Ver Ordenes</a>
+            <main class="col-md-9">
+                <article class="card">
+                    <header class="card-header">
+                        <strong class="d-inline-block mr-3"> Sesion iniciada de: </strong>
+                        <span>{{ user.full_name }}</span>
+                    </header>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card" style="text-align:center;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total de ordenes</h5>
+                                        <h4>{{ orders_count }}</h4>
+                                        <a href="">Ver Ordenes</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card" style="text-align:center;">
+                                    <div class="card-body">
+                                        {% if userprofile.profile_picture %}
+                                        <img src="{{userprofile.profile_picture.url}}" alt="Imagen de perfil" width="50"
+                                            height="50" style="border-radius:50%">
+                                        {% else %}
+                                        {% endif %}
+
+                                        <p class="mb-0">{{user.email}}</p>
+                                        <p>{{user.phone_number}}</p>
+                                    </div>
+
+                                </div>
                             </div>
 
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card" style="text-align:center;">
-                            <div class="card-body">
-                                {% if userprofile.profile_picture %}
-                                <img src="{{userprofile.profile_picture.url}}" alt="Imagen de perfil" width="50" height="50" style="border-radius:50%">
-                                {% else %}  
-                                {% endif %}
-            
-                                <p class="mb-0">{{user.email}}</p>
-                                <p>{{user.phone_number}}</p>
+                            <div class="col-md-12 mt-3">
+                                <div class="card" style="text-align:center;">
+                                    <div class="card-body">
+                                        <h4>Informacion de direccion</h4>
+                                        <h5>Descuentos autorizados 04/08/2022</h5>
+                                        <br>
+                                        <div class="row">
+
+                                            <div class="col-md-4 alert alert-secondary p-0">
+                                                Precio venta
+                                                <table class="table table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="row">-2%</th>
+                                                            <td></td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">Todos espesores</th>
+                                                            <td class="table-primary"> 4.3531</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Precio anterior</th>
+                                                            <td>4.4419</td>
+
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-7 alert alert-secondary p-0 ml-2">
+                                                Precio compra
+                                                <table class="table table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="bg-info" scope="col">Borealis</th>
+                                                            <th class="bg-primary" scope="col">Braskem</th>
+                                                            <th class="bg-warning" scope="col">Ineos</th>
+                                                            <th class="bg-danger" scope="col">DOW</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1.7196</td>
+                                                            <td>1.5873</td>
+                                                            <td>1.6755</td>
+                                                            <td>1.6755</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.780</td>
+                                                            <td>0.720</td>
+                                                            <td>0.760</td>
+                                                            <td>0.760</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-4 alert alert-light p-0">
+                                                <table class="table table-sm">
+                                                    <thead class="table-success">
+                                                        <tr>
+                                                            <td rowspan="2" style="vertical-align:middle;">Desc</td>
+                                                            <td colspan="2">P. de venta</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4.3651</td>
+                                                            <td>Unidad</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="table-danger">
+                                                            <td rowspan="2" style="vertical-align:middle;">52</td>
+                                                            <td> 2.0895</td>
+                                                            <td> kilo</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+
+                                                            <td> 0.9478</td>
+                                                            <td> libra</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td rowspan="2" style="vertical-align:middle;">51</td>
+                                                            <td>2.1330</td>
+                                                            <td>kilo</td>
+
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td> 0.9675</td>
+                                                            <td> libra</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td rowspan="2" style="vertical-align:middle;">50</td>
+                                                            <td>2.1765</td>
+                                                            <td>kilo</td>
+
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td> 0.9873</td>
+                                                            <td> libra</td>
+                                                        </tr>
+                                                        <tr class="bg-warning">
+                                                            <td rowspan="2" style="vertical-align:middle;">49</td>
+                                                            <td>2.2201</td>
+                                                            <td>kilo</td>
+
+                                                        </tr>
+                                                        <tr class="bg-warning">
+                                                            <td> 1.0070</td>
+                                                            <td> libra</td>
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td rowspan="2" style="vertical-align:middle;">48</td>
+                                                            <td>2.2636</td>
+                                                            <td>kilo</td>
+
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td> 1.0267</td>
+                                                            <td> libra</td>
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td rowspan="2" style="vertical-align:middle;">47</td>
+                                                            <td>2.3071</td>
+                                                            <td>kilo</td>
+
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td> 1.0465</td>
+                                                            <td> libra</td>
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td rowspan="2" style="vertical-align:middle;">46</td>
+                                                            <td>2.3507</td>
+                                                            <td>kilo</td>
+
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td> 1.0662</td>
+                                                            <td> libra</td>
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td rowspan="2" style="vertical-align:middle;">45</td>
+                                                            <td>2.3942</td>
+                                                            <td>kilo</td>
+
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td> 1.0860</td>
+                                                            <td> libra</td>
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-7 alert alert-light p-0 ml-2">
+                                                <table class="table table-sm">
+                                                    <thead class="table-success">
+                                                        <tr>
+                                                            <td colspan="4">Utilidad</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="bg-info" scope="col">Borealis</th>
+                                                            <th class="bg-primary" scope="col">Braskem</th>
+                                                            <th class="bg-warning" scope="col">Ineos</th>
+                                                            <th class="bg-danger" scope="col">DOW</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="table-danger">
+                                                            <td>1.2150</td>
+                                                            <td>1.3160</td>
+                                                            <td>1.2470</td>
+                                                            <td>1.2470</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td>0.168</td>
+                                                            <td>0.228</td>
+                                                            <td>0.188</td>
+                                                            <td>0.188</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td>1.2240</td>
+                                                            <td>1.3440</td>
+                                                            <td>1.2730</td>
+                                                            <td>1.2730</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td>0.188</td>
+                                                            <td>0.248</td>
+                                                            <td>0.208</td>
+                                                            <td>0.208</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td>1.2660</td>
+                                                            <td>1.3710</td>
+                                                            <td>1.2990</td>
+                                                            <td>1.2990</td>
+                                                        </tr>
+                                                        <tr class="table-danger">
+                                                            <td>0.207</td>
+                                                            <td>0.267</td>
+                                                            <td>0.227</td>
+                                                            <td>0.227</td>
+                                                        </tr>
+                                                        <tr class="bg-warning">
+                                                            <td>1.2910</td>
+                                                            <td>1.3990</td>
+                                                            <td>1.3250</td>
+                                                            <td>1.3250</td>
+                                                        </tr>
+                                                        <tr class="bg-warning">
+                                                            <td>0.227</td>
+                                                            <td>0.287</td>
+                                                            <td>0.247</td>
+                                                            <td>0.247</td>
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td>1.3160</td>
+                                                            <td>1.4260</td>
+                                                            <td>1.3510</td>
+                                                            <td>1.3510</td>
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td>0.247</td>
+                                                            <td>0.307</td>
+                                                            <td>0.267</td>
+                                                            <td>0.267</td>
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td>1.3420</td>
+                                                            <td>1.4530</td>
+                                                            <td>1.3370</td>
+                                                            <td>1.3370</td>
+                                                        </tr>
+                                                        <tr class="table-warning">
+                                                            <td>0.266</td>
+                                                            <td>0.326</td>
+                                                            <td>0.286</td>
+                                                            <td>0.286</td>
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td>1.3670</td>
+                                                            <td>1.4810</td>
+                                                            <td>1.4030</td>
+                                                            <td>1.4030</td>
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td>0.286</td>
+                                                            <td>0.346</td>
+                                                            <td>0.306</td>
+                                                            <td>0.306</td>
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td>1.3920</td>
+                                                            <td>1.5080</td>
+                                                            <td>1.4290</td>
+                                                            <td>1.4290</td>
+                                                        </tr>
+                                                        <tr class="table-info">
+                                                            <td>0.306</td>
+                                                            <td>0.366</td>
+                                                            <td>0.326</td>
+                                                            <td>0.326</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
                             </div>
 
-                        </div>
-                    </div>
-                    
-                    
-                </div> <!-- row.// -->
-            </div> <!-- card-body .// -->
-            
-            </article> <!-- order-group.// --> 
-        </main>
-    </div> <!-- row.// -->
+
+                        </div> <!-- row.// -->
+                    </div> <!-- card-body .// -->
+
+                </article> <!-- order-group.// -->
+            </main>
+        </div> <!-- row.// -->
     </div>
-    
-    
-    </section>
-    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
 
 {% endblock %}
