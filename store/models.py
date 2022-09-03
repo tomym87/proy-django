@@ -23,6 +23,13 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now=True)
     modified_date = models.DateTimeField(auto_now=True)
+    is_min = models.BooleanField(default=True)
+    is_indu = models.BooleanField(default=True)
+    is_oil = models.BooleanField(default=True)
+    is_ener = models.BooleanField(default=True)
+    is_apot = models.BooleanField(default=True)
+    is_ares = models.BooleanField(default=True)
+
 
     def get_url(self):
         return reverse('product_detail', args=[self.category.slug, self.slug])
@@ -80,3 +87,16 @@ class ReviewRating(models.Model):
 
     def __str__(self):
         return self.subject
+    
+variation_uso_choice=(
+    ('mineria', 'Mineria'),
+    ('industrial', 'Industrial'),
+    ('oil y gas', 'OPil y Gas'),
+    ('energia', 'Energia'),
+    ('agua potable', 'Agua potable'),
+    ('agua residual', 'Agua Residual'),
+    
+)
+    
+
+     

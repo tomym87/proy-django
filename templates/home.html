@@ -27,6 +27,7 @@
 
 	
 <div class="row">
+	
 	{% for product in products %}
 	<!-- <div class="col-md-3">
 		<div class="card card-product-grid">
@@ -49,9 +50,43 @@
 			</a>
 			<div class="card-body">
 			  <h5 class="card-title">{{product.product_name}}</h5>
+			  <div class="border-top my-2"></div>
 			  <p class="card-text">{{product.description | truncatechars:120 }}</p>
+			  <h5>Principales usos</h5>
+			  <div class="border-top my-2"></div>
+			  
+			  {% if product.is_oil %}
+				<button type="button" class="btn btn-secondary  bg-light  p-1  border border-secondary rounded-circle" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Mineria">
+					<img class=" p-1" src="{% static 'images/icons/aceite.svg' %}" alt="Mineria" width="35" height="35">
+				</button> 
+				{% endif %}
+				{% if product.is_min %}
+				<button type="button" class="btn btn-secondary  bg-light  p-1  border border-secondary rounded-circle" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Industrial">
+					<img class=" p-1" src="{% static 'images/icons/industria.svg' %}" alt="Oil y gas" width="35" height="35">
+				</button>
+				{% endif %}
+				{% if product.is_indu %}
+				<button type="button" class="btn btn-secondary  bg-light  p-1 border border-secondary rounded-circle" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Oil y gas">
+					<img class=" p-1" src="{% static 'images/icons/oil.svg' %}" alt="Oil y gas" width="35" height="35">
+				</button>
+				{% endif %} 
+				{% if product.is_ener %}
+				<button type="button" class="btn btn-secondary  bg-light  p-1  border border-secondary rounded-circle" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Energia">
+					<img class=" p-1" src="{% static 'images/icons/power.svg' %}" alt="Energia" width="35" height="35">
+				</button> 
+				{% endif %}
+				{% if product.is_ares %}
+				<button type="button" class="btn btn-secondary  bg-light  p-1  border border-secondary rounded-circle" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Agua potable">
+					<img class=" p-1" src="{% static 'images/icons/agua.svg' %}" alt="Agua potable" width="35" height="35">
+				</button> 
+				{% endif %}
+				{% if product.is_apot %}
+				<button type="button" class="btn btn-secondary  bg-light  p-1  border border-secondary rounded-circle" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Agua residual">
+					<img class=" p-1" src="{% static 'images/icons/agres.svg' %}" alt="Agua Residual" width="35" height="35">
+				</button> 
+				{% endif %}
 
-			  <div class="rating-star">
+			  <!-- <div class="rating-star">
 				<span>
 					<i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.average_review < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
 					<i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.average_review < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
@@ -60,8 +95,10 @@
 					<i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.average_review < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
 
 				</span>
-			</div>
+			</div> -->
 			<br>
+			<h5>Descargas</h5>
+			  <div class="border-top my-2"></div>
 
 				<a href="{{product.prod_catalogo}}">
 					<button type="button" class="btn btn-outline-primary">
@@ -92,6 +129,15 @@
 
 
 </body>
+<script>
+	$(document).ready(function(){
+	  $('[data-toggle="popover"]').popover();
+	});
+
+	
+	</script>
+
+	
 </html>
 
 {% endblock%}
