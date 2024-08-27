@@ -1,4 +1,4 @@
-#!/home/debian/Documentos/python/ecommerce/env/bin/python3
+#!/home/admin/proy-django/env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
