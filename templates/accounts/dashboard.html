@@ -43,13 +43,18 @@
 
                                 </div>
                             </div>
-                            {% if user.email == 'direccion@valtic.com.mx' %}
+                            {% if user.email == 'direccion@valtic.com.mx' or 'atalavera@valtic.com.mx' %}
                             <div class="col-md-12 mt-3">
                                 <div class="card" style="text-align:center;">
                                     <div class="card-body">
                                         <h4>Informacion de direccion</h4>
-                                        <h5>Descuentos autorizados 04/08/2022</h5>
+                                        <h5>Descuentos autorizados 01/08/2024</h5>
                                         <br>
+                                        <div class="row">
+                                            <img src="{% static 'images/banners/precios.jpg' %}" class="img-fluid rounded">
+                                            <img src="{% static 'images/banners/politica.jpg' %}" class="img-fluid rounded">
+                                        </div>
+                                        <!--
                                         <div class="row">
 
                                             <div class="col-md-4 alert alert-secondary p-0">
@@ -319,7 +324,7 @@
                                                 </table>
                                             </div>
                                         </div>
-
+                                    -->
 
                                     </div>
 
